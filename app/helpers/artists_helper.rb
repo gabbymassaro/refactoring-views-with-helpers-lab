@@ -1,11 +1,9 @@
 module ArtistsHelper
-  def display_artist(artist)
-    if artist.present?
-      # edit_song_path(artist)
-      "<a href='#{artist_path(artist)}</a>".html_safe
+  def display_artist(song)
+    if song.artist.present?
+      link_to song.artist.name, artist_path(song)
     else
-      "<a href='#{edit_song_path(artist)}</a>".html_safe
-      # artist_path(artist)
+      link_to "Add Artist", edit_song_path(song)
     end
   end
 end
